@@ -1,7 +1,18 @@
 * {
-  font-family: 'Inconsolata', monospace;
-  margin: 0px;
-  --navy: hsl(210, 80%, 10%);
+  font-family: 'Raleway', monospace;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  --darkBlue: #141E30;
+  --darkishBlue: #243B55;
+  --blueAccent: #64A4ED;
+  --yellowAccent: #FFB638;
+}
+
+
+
+html {
+  font-size: 10px;
 }
 
 body {
@@ -18,21 +29,23 @@ a {
 
 nav {
   position: fixed;
-  background-color: var(--navy);
+  background: linear-gradient(to right, var(--darkBlue), var(--darkishBlue));
   color: white;
   width: 100vw;
+  z-index: 100;
 }
 
 nav ul {
   display: flex;
   flex-direction: row;
+  margin-left: 4rem;
 }
 
 nav li {
   list-style: none;
-  padding: 20px 40px 20px 0px;
-  font-size: 1.6em;
-  font-style: bold;
+  padding: 2rem 4rem 2rem 0;
+  font-size: 3rem;
+  font-weight: 700;
 }
 
 nav a {
@@ -42,82 +55,102 @@ nav a {
 }
 
 nav li:hover {
-  color: cyan;
+  color: var(--blueAccent);
   transform: translateY(1px);
 }
 
 #welcome-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   align-content: center;
-  background-color: var(--navy);
+  background: linear-gradient(to right, var(--darkBlue), var(--darkishBlue));
   color: white;
   width: 100%;
-  height: 55vh;
-  padding-top: 45vh;
+  height: 100vh;
+}
+
+.welcome-text {
+  text-align: center;
+  margin: 0 5vw;
 }
 
 #welcome-section h1 {
-  font-size: 4em;
-  text-align: center;
+  font-size: 7rem;
 }
 
 #welcome-section h2 {
-  font-size: 3em;
-  color: cyan;
+  font-size: 5rem;
+  color: var(--yellowAccent);
 }
 
 #projects {
-  margin-bottom: 20px;
+  margin: 5rem 15vw;
 }
 
-#projects h2 {
-  color: hsl(210, 80%, 10%);
-  font-size: 3em;
+.projects-title {
+  color: var(--darkishBlue);
+  font-size: 5em;
   text-align: center;
-  padding: 40px 0 20px 0;
 }
 
 #project-grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
-  padding: 0px 70px;
-  margin: 0 10vw 0 10vw;
+  justify-content: space-between;
+  align-content: space-between;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 300px;
+  min-height: 12rem;
+  margin: 2rem;
   background-color: white;
   border: 1px solid lightgrey;
-  border-top: 10px solid hsl(210, 70%, 30%);
-  box-shadow: 0px 2px 4px lightgrey;
-  border-radius: 15px;
-  padding: 20px;
-  padding-bottom: 10px;
-  text-align: center;
-  width: 200px;
-  min-height: 80px;
-  margin: 20px;
+  border-top: 10px solid var(--darkishBlue);
+  border-radius: 1.5rem;
   color: hsl(210, 80%, 10%);
-  transition: all .3s;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.25s cubic-bezier(.25,.8,.25,1);
 }
 
 .card:hover {
-  transform: translateY(1px);
-  border-color: hsl(180, 100%, 40%);
-  box-shadow: 0px 2px 16px lightgrey;
+  transform: translateY(-2px);
+  border-color: var(--yellowAccent);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .card h3 {
-  font-size: 2em;
-  padding-bottom: 10px;
+  font-size: 3em;
+  font-weight: 700;
 }
 
 .card p {
-  font-size: 1.5em;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.card-links {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.card:hover .card-links {
+  opacity: 1;
+  animation: slideUp .25s ease-out;
+} 
+
+.card-links a:hover {
+  color: var(--yellowAccent);
 }
 
 #links {
@@ -126,8 +159,8 @@ nav li:hover {
 }
 
 #links h2 {
-  font-size: 3em;
-  color: var(--navy);
+  font-size: 5em;
+  color: var(--darkishBlue);
 }
 
 #social {
@@ -136,34 +169,54 @@ nav li:hover {
   justify-content: space-around;
   align-content: space-around;
   padding: 40px;
-  color: hsl(210, 80%, 10%);
+  color: var(--darkishBlue);
 }
 
 #social a {
-  font-size: 2.4em;
+  font-size: 3rem;
   text-decoration: none;
-  color: hsl(210, 70%, 30%);
+  color: var(--darkishBlue);
   transition: ease-out .2s;
 }
 
 #social a:hover {
-  color: hsl(180, 100%, 40%);
+  color: var(--blueAccent);
   transform: translateY(1px);
 }
 
-@media (min-width: 1000px) {
-  #welcome-section h1 {
-    font-size: 5em;
-  }
 
-  #welcome-section h2 {
-    font-size: 4em;
+/*
+  KEYFRAMES 
+*/
+
+@keyframes slideUp {
+  0% { 
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(-.3rem);
+    opacity: .8;
+  }
+  100% { 
+    transform: translateY(0rem);
+    opacity: 1;
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 110rem) {
+
+  #projects {
+    margin: 5rem 5vw;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  
   #project-grid {
     flex-direction: column;
+    justify-content: center;
   }
 
   #social {
@@ -172,5 +225,26 @@ nav li:hover {
 
   #social a {
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 45rem ) {
+
+  nav ul {
+    justify-content: space-between;
+  }
+
+  nav li {
+    font-size: 2rem;
+  } 
+
+  .card {
+    width: auto;
+    max-width: 90vw;
+  }
+
+  .card-links {
+    opacity: 1;
+    color: var(--blueAccent);
   }
 }
