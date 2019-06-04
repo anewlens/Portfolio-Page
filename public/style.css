@@ -228,6 +228,24 @@ nav li:hover {
   }
 }
 
+@media (hover: none) {
+
+  .card:hover {
+    transform: translateY(0px);
+    border-color: inherit;
+    box-shadow: inherit;
+  }
+
+  .card:hover .card-links {
+    opacity: 1;
+    animation: none;
+  } 
+  
+  .card-links a:hover {
+    color: inherit;
+  }
+}
+
 @media screen and (max-width: 45rem ) {
 
   nav ul {
