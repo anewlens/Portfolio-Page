@@ -87,7 +87,7 @@ nav li:hover {
 }
 
 #projects {
-  margin: 5rem 10vw;
+  margin: 5rem 5vw;
 }
 
 .projects-title {
@@ -257,6 +257,7 @@ nav li:hover {
   #project-grid {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     align-content: center;
   }
 
@@ -285,7 +286,6 @@ nav li:hover {
   } 
 
   .card {
-    width: auto;
     max-width: 90vw;
   }
 
